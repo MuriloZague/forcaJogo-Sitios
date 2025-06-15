@@ -6,49 +6,49 @@ const tentativaLista = document.getElementById("tentativa");
 const adivinharBtn = document.getElementById("adivinharBtn");
 
 const forcaAscii = [
-    ` +---+
+` +---+
  |   |
      |
      |
      |
      |
 =======`,
-    ` +---+
+` +---+
  |   |
  O   |
      |
      |
      |
 =======`,
-    ` +---+
+` +---+
  |   |
  O   |
  |   |
      |
      |
 =======`,
-    ` +---+
+` +---+
  |   |
  O   |
 /|   |
      |
      |
 =======`,
-    ` +---+
+` +---+
  |   |
  O   |
 /|\\  |
      |
      |
 =======`,
-    ` +---+
+` +---+
  |   |
  O   |
 /|\\  |
 /    |
      |
 =======`,
-    ` +---+
+` +---+
  |   |
  O   |
 /|\\  |
@@ -80,7 +80,7 @@ renderizarPalavra()
 
 const perdeuOJogo = () => {
     const tentativaForm = document.getElementById("tentativaForm")
-    forca.innerHTML = `${forcaAscii[6]}<span>VOCÊ PERDEU! <button style="font-size: 2rem; padding: 1rem"><a href="index.html" style="text-decoration: none; color: black">RECOMEÇAR</a>?</button></span>`
+    forca.innerHTML = `${forcaAscii[6]}<span>VOCÊ PERDEU!<br>A PALAVRA ERA: ${palavraUpp} <button style="font-size: 2rem; padding: 1rem"><a href="index.html" style="text-decoration: none; color: black">RECOMEÇAR</a>?</button></span>`
     adivinharBtn.setAttribute("disabled", "disabled");
     tentativaForm.setAttribute("disabled", "disabled")
 }
@@ -116,7 +116,6 @@ const advinhar = () => {
         tentativas.push(letra);
         tentativaLista.innerHTML = `${tentativas.join(", ")}`;
         if (!acertou) {
-            //alert("Letra não encontrada!");
             tentativaErradas.push(letra)
             if (tentativaErradas.length <= 5) {
                 forca.innerHTML = `${forcaAscii[tentativaErradas.length]}`
@@ -126,7 +125,6 @@ const advinhar = () => {
             }
         }
         document.getElementById("tentativaForm").value = "";
-
     }
     else {
         alert('Digite alguma letra!')
